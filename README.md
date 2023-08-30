@@ -1,4 +1,4 @@
-# Anyahealthcare
+# CareSyncAssistant
 The rise of healthcare sector is not a mystery, as population rises so does the importance of a proper healthcare system. This inspired us to help people and deliver a simple but effective solution to them. Anya is your personal healthcare assistant who can manage your appointments and your insurance, monitor your health, locate nearby hospitals and check your symptoms for possible health conditions. This makes Anya a robust chatbot which can act as a one stop solution for its users.
 
 # UseCases:
