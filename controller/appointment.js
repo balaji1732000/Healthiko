@@ -100,7 +100,7 @@ route.post('/verifyDoctor', (req, res) => {
  */
 route.post('/checkSlots',(req,res)=>{
     console.log(req.body)
-        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate, time:req.body.scheduleTime})
+        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate})
         .then((result)=>{
             console.log(result)
             if(result === null)
@@ -108,7 +108,7 @@ route.post('/checkSlots',(req,res)=>{
                 res.sendStatus(404)
             }
             else{
-                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(0,2) && result.bookedStatus === false)
                 {
                     console.log(result)
                     res.send(result)
