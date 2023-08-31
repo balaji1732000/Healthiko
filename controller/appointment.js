@@ -108,7 +108,7 @@ route.post('/checkSlots',(req,res)=>{
                 res.sendStatus(404)
             }
             else{
-                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(0,2) && result.bookedStatus === false)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
                 {
                     console.log(result)
                     res.send(result)
