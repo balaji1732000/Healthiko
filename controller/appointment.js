@@ -49,7 +49,7 @@ const template = handlebars.compile(emailTemplateSource)
  */
 route.post('/verifyDoctor', (req, res) => {
     console.log('Request Body:', req.body);
-    doctor.findOne({providerZipcode:req.body.providerZipcode, providerSpeciality:req.body.providerSpeciality}).then((result) => {
+    doctor.findOne({providerSpeciality:req.body.providerSpeciality}).then((result) => {
             console.log('Result:', result);
             if (result === null) {
                 console.log('Doctor not found');
