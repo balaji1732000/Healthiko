@@ -100,7 +100,7 @@ route.post('/verifyDoctor', (req, res) => {
  */
 route.post('/checkSlots',(req,res)=>{
     console.log(req.body)
-        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate})
+        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate, time:req.body.scheduleTime})
         .then((result)=>{
             console.log(result)
             if(result === null)
