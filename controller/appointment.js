@@ -11,8 +11,8 @@ const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/tempApt.hbs")
 let transporter = {
     service: 'gmail',
     auth: {
-    user: 'promtgenerator2000@gmail.com' ,
-    pass: 'Hema@123',
+    user: 'anyahealthcarebot@gmail.com' ,
+    pass: 'deaq bxzg yfev pgdd',
     }
 };
 
