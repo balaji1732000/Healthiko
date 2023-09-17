@@ -141,43 +141,43 @@ mongoose.connect('mongodb+srv://Koreai12345:Koreai12345@cluster0.o1tk1yg.mongodb
     //         console.error('Error saving users:', error);
     //     });
 
-    const generateAppointments = async () => {
-        try {
-            // Fetch all patients, doctors, and slots
-            const allPatients = await userModel.find({});
-            const allDoctors = await doctorModel.find({});
-            const allSlots = await slotModel.find({});
+    // const generateAppointments = async () => {
+    //     try {
+    //         // Fetch all patients, doctors, and slots
+    //         const allPatients = await userModel.find({});
+    //         const allDoctors = await doctorModel.find({});
+    //         const allSlots = await slotModel.find({});
     
-            const appointments = [];
+    //         const appointments = [];
     
-            // Generate appointments by combining patient, doctor, and slot information
-            for (const slot of allSlots) {
-                const patient = allPatients[Math.floor(Math.random() * allPatients.length)];
-                const doctor = allDoctors.find(doc => doc._id.toString() === slot.providerId.toString());
+    //         // Generate appointments by combining patient, doctor, and slot information
+    //         for (const slot of allSlots) {
+    //             const patient = allPatients[Math.floor(Math.random() * allPatients.length)];
+    //             const doctor = allDoctors.find(doc => doc._id.toString() === slot.providerId.toString());
     
-                if (patient && doctor) {
-                    const appointment = {
-                        patientId: patient._id,
-                        patientName: patient.patientName,
-                        providerName: doctor.providerName,
-                        speciality: doctor.providerSpeciality,
-                        date: slot.date,
-                        time: slot.time
-                    };
-                    appointments.push(appointment);
-                }
-            }
+    //             if (patient && doctor) {
+    //                 const appointment = {
+    //                     patientId: patient._id,
+    //                     patientName: patient.patientName,
+    //                     providerName: doctor.providerName,
+    //                     speciality: doctor.providerSpeciality,
+    //                     date: slot.date,
+    //                     time: slot.time
+    //                 };
+    //                 appointments.push(appointment);
+    //             }
+    //         }
     
-            // Insert generated appointments into the appointment collection
-            await apptModel.insertMany(appointments);
+    //         // Insert generated appointments into the appointment collection
+    //         await apptModel.insertMany(appointments);
     
-            console.log('Appointments created:', appointments);
-        } catch (error) {
-            console.error('Error generating appointments:', error);
-        }
-    };
+    //         console.log('Appointments created:', appointments);
+    //     } catch (error) {
+    //         console.error('Error generating appointments:', error);
+    //     }
+    // };
     
-    generateAppointments();
+    // generateAppointments();
 
 })
 console.log('Success')})
@@ -199,7 +199,8 @@ const swaggerOptions = {
         './controller/cancel.js',
         './controller/insurance.js',
         './controller/changePolicy.js',
-        './controller/card.js'
+        './controller/card.js',
+        './controller/sendEmailTest.js',
      ] // Path to your route files
 };
 
@@ -242,7 +243,9 @@ app.use(insurance)
 const updateProfile=require('./controller/updateProfile')
 app.use(updateProfile)
 
-
+//route to sendEmaiTest
+const sendEmail=require('./controller/sendEmailTest.js')
+app.use(sendEmail)
 
 //route to card
 const card=require('./controller/card')
