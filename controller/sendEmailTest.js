@@ -47,15 +47,15 @@ const template = handlebars.compile(emailTemplateSource)
  */
 route.post('/sendEmail', (req, res) => {
   // Get email data from the request body
-  const { to, subject, text } = req.body;
+  const { to, subject, content } = req.body;
 
-  const htmlToSend = template({ to, subject, text });
+  const htmlToSend = template({ to, subject, content });
   // Create email options
   const mailOptions = {
     from: 'sampathbalaji777@gmail.com', // Sender email
     to: to, // Recipient email
     subject: subject, // Email subject
-    text: text,
+    text: content,
     html:htmlToSend // Email content
   };
 
